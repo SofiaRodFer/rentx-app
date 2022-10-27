@@ -3,7 +3,7 @@ import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { CarDetails } from './src/screens/CarDetails';
+import { Scheduling } from './src/screens/Scheduling';
 
 import theme from './src/styles/theme';
 import {
@@ -34,7 +34,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
-        <CarDetails />
+        <Scheduling />
       </ThemeProvider>
     </GestureHandlerRootView>
 
