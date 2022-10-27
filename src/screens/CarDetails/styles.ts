@@ -1,4 +1,5 @@
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -19,4 +20,68 @@ export const Header = styled.View`
 
 export const CarImages = styled.View`
   margin-top: ${getStatusBarHeight() + 32}px;
+`;
+
+export const Content = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    padding: 24,
+    alignItems: 'center'
+  },
+  showsVerticalScrollIndicator: false
+})``;
+
+export const Details = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 38px;
+`;
+
+export const Description = styled.View``;
+
+export const Brand = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.secondary_500};
+  font-size: ${RFValue(10)}px;
+  color: ${({ theme }) => theme.colors.text_detail};
+
+  text-transform: uppercase;
+`;
+
+export const Name = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.secondary_500};
+  font-size: ${RFValue(25)}px;
+  color: ${({ theme }) => theme.colors.title};
+`;
+
+export const Rent = styled.View`
+
+`;
+
+export const Period = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.secondary_500};
+  font-size: ${RFValue(10)}px;
+  color: ${({ theme }) => theme.colors.text_detail};
+
+  text-transform: uppercase;
+`;
+
+export const Price = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.secondary_500};
+  font-size: ${RFValue(25)}px;
+  color: ${({ theme }) => theme.colors.main};
+`;
+
+export const About = styled.Text`
+  width: 100%;
+  
+  font-family: ${({ theme }) => theme.fonts.primary_400};
+  font-size: ${RFValue(15)}px;
+  color: ${({ theme }) => theme.colors.text};
+
+  align-self: center;
+  text-align: justify;
+
+  margin-top: 23px;
 `;
