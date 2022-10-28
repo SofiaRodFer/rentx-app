@@ -1,9 +1,11 @@
+import 'react-native-gesture-handler'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { SchedulingComplete } from './src/screens/SchedulingComplete';
+import { Routes } from './src/routes';
 
 import theme from './src/styles/theme';
 import {
@@ -32,9 +34,9 @@ export default function App() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{flex: 1}}>
       <ThemeProvider theme={theme}>
-        <SchedulingComplete />
+        <Routes />
       </ThemeProvider>
     </GestureHandlerRootView>
 
