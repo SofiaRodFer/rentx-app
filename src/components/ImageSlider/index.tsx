@@ -8,7 +8,7 @@ import {
 } from './styles';
 
 interface Props {
-    imagesUrl: string[];
+    imagesUrl: String[];
 }
 
 export function ImageSlider({ imagesUrl }: Props) {

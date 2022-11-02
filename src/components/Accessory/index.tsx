@@ -5,7 +5,7 @@ import { Container, Name } from './styles';
 
 
 interface Props {
-    name: string;
+    name: String;
     icon: React.FC<SvgProps>
 }
 
