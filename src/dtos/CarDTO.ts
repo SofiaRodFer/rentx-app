@@ -1,17 +1,17 @@
 export interface CarDTO {
-    id: String,
-    brand: String,
-    name: String,
-    about: String,
+    id: string,
+    brand: string,
+    name: string,
+    about: string,
     rent: {
-      period: String,
-      price: Number
+      period: string,
+      price: number
     },
-    fuel_type: String,
-    thumbnail: String,
+    fuel_type: string,
+    thumbnail: string,
     accessories: {
-        type: String,
-        name: String
+        type: string,
+        name: string
     }[],
-    photos: String[]
+    photos: string[]
 }
