@@ -35,7 +35,6 @@ import {
   Accessories,
   Footer
 } from './styles';
-import theme from '../../styles/theme';
 
 interface Params {
   car: CarDTO
