@@ -31,6 +31,10 @@ export const SubTitle = styled.Text`
   margin-top: 16px;
 `;
 
-export const Footer = styled.View`
+export const Footer = styled.View``;
 
+export const Form = styled.View`
+  width: 100%;
+
+  margin: 64px 0;
 `;
