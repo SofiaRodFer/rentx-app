@@ -9,6 +9,7 @@ import { Button } from '../../../components/Button';
 
 import { Container, Header, Steps, Title, Subtitle, Form, FormTitle } from './styles';
 import { PasswordInput } from '../../../components/PasswordInput';
+import api from '../../../services/api';
 
 interface Params {
   user: {
@@ -28,7 +29,7 @@ export function SignUpSecondStep() {
 
   const { user } = route.params as Params
 
-  function handleRegister() {
+  async function handleRegister() {
     if(!password || !passwordConfirm) {
       return Alert.alert('Opa', 'Informe a senha e a confirmação')
     }
@@ -37,10 +38,22 @@ export function SignUpSecondStep() {
       return Alert.alert('Opa', 'As senhas não são iguais')
     }
 
-    navigation.navigate('Confirmation', {
-      message: `Agora é só fazer login\ne aproveitar.`,
-      title: "Conta criada!",
-      nextScreenRoute: "SignIn"
+    await api.post('/users', {
+      name: user.name,
+      email: user.email,
+      driver_license: user.driverLicense,
+      password,
+    })
+    .then(() => {
+      navigation.navigate('Confirmation', {
+        message: `Agora é só fazer login\ne aproveitar.`,
+        title: "Conta criada!",
+        nextScreenRoute: "SignIn"
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+      Alert.alert('Opa', 'Não foi possível realizar seu cadastro')
     })
   }
 
