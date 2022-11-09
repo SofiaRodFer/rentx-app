@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import * as Yup from 'yup'
 import { StatusBar, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import { useTheme } from 'styled-components';
+import { useNavigation } from '@react-navigation/native';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
+import { Bullet } from '../../components/Bullet';
 import { PasswordInput } from '../../components/PasswordInput';
 
 import { 
@@ -21,6 +23,7 @@ export function SignIn() {
   const [password, setPassword] = useState('')
 
   const theme = useTheme()
+  const navigation = useNavigation()
 
   async function handleSignIn() {
     try {
@@ -43,6 +46,10 @@ export function SignIn() {
         )
       }
     }
+  }
+
+  function handleNewAccount() {
+    navigation.navigate('SignUpFirstStep')
   }
 
   return (
@@ -92,8 +99,8 @@ export function SignIn() {
         <Button
           title="Criar conta gratuita"
           color={theme.colors.background_secondary}
-          onPress={() => {}}
-          enabled={false}
+          onPress={handleNewAccount}
+          enabled
           loading={false}
           light
         />
