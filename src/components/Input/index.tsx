@@ -26,8 +26,8 @@ export function Input({ iconName, value, ...rest }: InputProps) {
     const theme = useTheme()
 
     return (
-      <Container isFocused={isFocused}>
-            <IconContainer>
+      <Container >
+            <IconContainer isFocused={isFocused}>
                 <Feather 
                     name={iconName}
                     size={24}
@@ -39,6 +39,7 @@ export function Input({ iconName, value, ...rest }: InputProps) {
                 {...rest}
                 onFocus={handleInputFocused}
                 onBlur={handleInputBlur}
+                isFocused={isFocused}
             />
       </Container>
     );
