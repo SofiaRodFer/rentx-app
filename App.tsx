@@ -4,6 +4,7 @@ import React from 'react';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
+import { AppProvider } from './src/hooks';
 import { Routes } from './src/routes';
 
 import theme from './src/styles/theme';
@@ -35,7 +36,9 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <AppProvider>
+          <Routes />
+        </AppProvider>
       </ThemeProvider>
     </GestureHandlerRootView>
 

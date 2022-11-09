@@ -4,6 +4,8 @@ import { StatusBar, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Al
 import { useTheme } from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
 
+import { useAuth } from '../../hooks/auth';
+
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { Bullet } from '../../components/Bullet';
@@ -22,6 +24,8 @@ export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const { signIn } = useAuth()
+
   const theme = useTheme()
   const navigation = useNavigation()
 
@@ -36,6 +40,8 @@ export function SignIn() {
       })
   
       await schema.validate({ email, password })
+
+      signIn({ email, password })
     } catch (error) {
       if(error instanceof Yup.ValidationError) {
         return Alert.alert('Opa', error.message)
@@ -92,7 +98,7 @@ export function SignIn() {
         <Button
           title="Login"
           onPress={handleSignIn}
-          enabled={false}
+          enabled
           loading={false}
         />
 
