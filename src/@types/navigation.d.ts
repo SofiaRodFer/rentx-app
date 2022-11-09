@@ -1,20 +1,32 @@
 import { CarDTO } from "../dtos/CarDTO";
 
+interface SignUpSecondStepProps {
+    name: string;
+    email: string;
+    driverLicense: string;
+}
+
 export declare global {
     namespace ReactNavigation {
         interface RootParamList {
             SignIn: undefined;
             SignUpFirstStep: undefined;
-            SignUpSecondStep: undefined;
+            SignUpSecondStep: {
+                user: SignUpSecondStepProps;
+            };
             Home: undefined;
             CarDetails: {
-                car: CarDTO
+                car: CarDTO;
             };
             Scheduling: {
-                car: CarDTO
+                car: CarDTO;
             };
             SchedulingDetails: undefined;
-            SchedulingComplete: undefined;
+            Confirmation: {
+                title: string;
+                message: string;
+                nextScreenRoute: string;
+            };
             MyCars: undefined;
         }
     }
