@@ -15,7 +15,7 @@ import { SignUpSecondStep } from '../screens/SignUp/SignUpSecondStep';
 
 const { Navigator, Screen } = createNativeStackNavigator()
 
-export function StackRoutes() {
+export function StackAppRoutes() {
     return (
         <Navigator 
             screenOptions={{
@@ -23,6 +23,10 @@ export function StackRoutes() {
             }}
             initialRouteName="Home"
         >
+            <Screen
+                name="Home"
+                component={Home}
+            />
             <Screen
                 name="SignIn"
                 component={SignIn}
@@ -35,13 +39,13 @@ export function StackRoutes() {
                 name="SignUpSecondStep"
                 component={SignUpSecondStep}
             />
-            <Screen
+            {/* <Screen
                 name="Home"
                 component={Home}
                 options={{
                     gestureEnabled: false
                 }}
-            />
+            /> */}
             <Screen
                 name="CarDetails"
                 component={CarDetails}
