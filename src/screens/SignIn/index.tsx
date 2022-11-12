@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup'
 import { StatusBar, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import { useTheme } from 'styled-components';
@@ -8,8 +8,9 @@ import { useAuth } from '../../hooks/auth';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
-import { Bullet } from '../../components/Bullet';
 import { PasswordInput } from '../../components/PasswordInput';
+
+import { database } from '../../databases';
 
 import { 
   Container, 
@@ -57,6 +58,16 @@ export function SignIn() {
   function handleNewAccount() {
     navigation.navigate('SignUpFirstStep')
   }
+
+  useEffect(() => {
+    async function loadData() {
+      const usersCollection = database.get('users')
+
+      const users = await usersCollection.query().fetch()
+
+      console.log('USUARIOS', users)
+    }
+  }, [])
 
   return (
     <KeyboardAvoidingView behavior="position" enabled>
