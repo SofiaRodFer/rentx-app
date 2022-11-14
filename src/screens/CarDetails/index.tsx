@@ -157,16 +157,17 @@ export function CarDetails() {
         { 
           carUpdated.accessories &&
           <Accessories>
-          {
-            carUpdated.accessories.map(accessory => (
-              <Accessory 
-                key={accessory.type}
-                name={accessory.name}
-                icon={getAccessoryIcon(accessory.type)} 
-              />
-            ))
-          }
-        </Accessories>}
+            {
+              carUpdated.accessories.map(accessory => (
+                <Accessory 
+                  key={accessory.type}
+                  name={accessory.name}
+                  icon={getAccessoryIcon(accessory.type)} 
+                />
+              ))
+            }
+          </Accessories>
+        }
 
         <About>{car.about}</About>
       </Animated.ScrollView>
